@@ -1,0 +1,20 @@
+# BookFlow AI
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.env
+.venv/
+venv/
+*.sqlite3
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.db
+.DS_Store
+docker-data/
