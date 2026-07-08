@@ -44,6 +44,7 @@ def create_app() -> FastAPI:
         allow_origins=[
             "http://localhost:3000",
             "https://frontend-six-murex-84.vercel.app",
+            "https://bookflow-ai.vercel.app",
         ],
         allow_credentials=True,
         allow_methods=["*"],
