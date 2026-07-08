@@ -4,9 +4,16 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from src.application.exceptions import ApplicationError, AuthenticationError
+from src.application.exceptions import (
+    ApplicationError,
+    AuthenticationError,
+)
+
 from src.infrastructure.config.settings import Settings
-from src.infrastructure.database.engine import close_db, init_db
+from src.infrastructure.database.engine import (
+    close_db,
+    init_db,
+)
 
 from src.presentation.api.errors import (
     application_error_handler,
@@ -14,11 +21,21 @@ from src.presentation.api.errors import (
     internal_error_handler,
 )
 
-from src.presentation.api.v1.routers.appointments import router as appointments_router
-from src.presentation.api.v1.routers.auth import router as auth_router
-from src.presentation.api.v1.routers.employees import router as employees_router
-from src.presentation.api.v1.routers.organizations import router as organizations_router
-from src.presentation.api.v1.routers.services import router as services_router
+from src.presentation.api.v1.routers.appointments import (
+    router as appointments_router,
+)
+from src.presentation.api.v1.routers.auth import (
+    router as auth_router,
+)
+from src.presentation.api.v1.routers.employees import (
+    router as employees_router,
+)
+from src.presentation.api.v1.routers.organizations import (
+    router as organizations_router,
+)
+from src.presentation.api.v1.routers.services import (
+    router as services_router,
+)
 
 
 @asynccontextmanager
@@ -43,8 +60,7 @@ def create_app() -> FastAPI:
         CORSMiddleware,
         allow_origins=[
             "http://localhost:3000",
-            "https://frontend-six-murex-84.vercel.app",
-            "https://bookflow-ai.vercel.app",
+            "https://frontend-kbjv5r2tm-dated-cpus-projects.vercel.app",
         ],
         allow_credentials=True,
         allow_methods=["*"],
@@ -67,11 +83,6 @@ def create_app() -> FastAPI:
     )
 
     app.include_router(
-        appointments_router,
-        prefix="/api/v1",
-    )
-
-    app.include_router(
         auth_router,
         prefix="/api/v1",
     )
@@ -88,6 +99,11 @@ def create_app() -> FastAPI:
 
     app.include_router(
         services_router,
+        prefix="/api/v1",
+    )
+
+    app.include_router(
+        appointments_router,
         prefix="/api/v1",
     )
 
