@@ -18,3 +18,7 @@ venv/
 *.db
 .DS_Store
 docker-data/
+
+# local debug logs
+*.log
+*.err

@@ -1,5 +1,7 @@
 # BookFlow AI
 
+![BookFlow AI](docs/preview.svg)
+
 Scheduling & Appointment Management SaaS.
 
 ## Stack
